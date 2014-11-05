@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1. Introduction &mdash; jacketse 1.0. documentation</title>
+    
+    <link rel="stylesheet" href="_static/nrel.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="jacketse 1.0. documentation" href="index.html" />
+    <link rel="next" title="2. Installation" href="installation.html" />
+    <link rel="prev" title="jacketse Documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="installation.html" title="2. Installation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="jacketse Documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">jacketse 1.0. documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="introduction">
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p id="bibtex-bibliography-intro-0"></p>
+<p>JacketSE is a module that allows for the analysis of preliminary designs of 3 and 4-legged jackets and towers.
+Coupled to an optimizer, it will render the design that achieves the objective, usually set as minimum overall mass, while satisfying both geometric, modal, and load criteria.
+The jackets can be seen with with piles either driven through the legs, or fastened to pile-sleeves at the bottom of the structure.
+Pile heads can be located above sea-bed, in that case the connection to the legs is expected at the pile heads.
+The embedded pile lengths and stiffness characteristics are calculated via simplistic semiempirical laws.
+Hydrodynamic loads are calculated on the legs only, but a generous safety factor is included to account for contributions from other members.
+The first order Airy theory and Morison&#8217;s equation are used to assess a pseudo-static maximum wave load.
+Wind drag loads are calculated on the tower and portions of the legs above mean sea level.
+Hydrostatic loads are ignored.
+Modal analysis is performed ignoring contributions of added mass or flooded members.</p>
+<p>The tool can size piles?, legs? and brace diameters and wall thickness, batter angle, and tower base and top diameter, wall thickness schedules and tapering height (height above which tower diameter and thickness are tapered).
+It also allows for parametric investigations and sensitivity analyses of both external factors and geometric variables that may drive the characteristics of the structure, thereby illustrating their impact on the mass, stiffness, blade/support clearance, strength, reliability, and expected costs.
+Within WISDEM, JacketSE allows for the full gamut of component investigations to arrive at a minimum LCOE wind turbine and power plant layout.</p>
+<p>JacketSE is based on a modular code framework and primarily consists of the following submodules: a geometry-definition module,
+a finite element model (a modified version of <cite>Frame3DD &lt;https://frame3dd.sourceforge.net/&gt;</cite>, a soil-pile-interaction module, a code checker module (based on API, GL, and Eurocode guidelines), and an optimization module.
+More details on the code can be found at <cite>WISDEM &lt;https://github.com/WISDEM/&gt;</cite>, and [damiani13], and <a class="reference internal" href="theory.html#theory"><em>Theory</em></a>.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">jacketse Documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="next chapter">2. Installation</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/intro.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="installation.html" title="2. Installation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="jacketse Documentation"
+             >previous</a> |</li>
+        <li><a href="index.html">jacketse 1.0. documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, RRD.
+      Last updated on Oct 31, 2014.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

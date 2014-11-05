@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3. Documentation &mdash; jacketse 1.0. documentation</title>
+    
+    <link rel="stylesheet" href="_static/nrel.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="jacketse 1.0. documentation" href="index.html" />
+    <link rel="next" title="4. Theory" href="theory.html" />
+    <link rel="prev" title="2. Installation" href="installation.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="theory.html" title="4. Theory"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="2. Installation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">jacketse 1.0. documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="documentation">
+<span id="interfaces-label"></span><span id="documentation-label"></span><h1>3. Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<p>If you have a normal Python code there are better ways to do this with autodoc.  For that case, see an example at <a class="reference external" href="https://raw.githubusercontent.com/WISDEM/CCBlade/master/docs/documentation.rst">https://raw.githubusercontent.com/WISDEM/CCBlade/master/docs/documentation.rst</a>.  For OpenMDAO classes there aren&#8217;t any autodoc plugins (yet), so there isn&#8217;t much you can do.  Fortunately, the definition of the assemblies can in many cases serve as useful documentaiton (assuming you have done a good job documenting through desc tags, units, etc.)  You can dump this out with a literalinclude</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">JacketSE</span><span class="p">(</span><span class="n">Assembly</span><span class="p">):</span>
+
+    <span class="c">#ins</span>
+    <span class="n">JcktGeoIn</span><span class="o">=</span>   <span class="n">VarTree</span><span class="p">(</span><span class="n">JcktGeoInputs</span><span class="p">(),</span><span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Jacket Geometry Basic Inputs&#39;</span><span class="p">)</span>
+    <span class="n">leginputs</span><span class="o">=</span>   <span class="n">VarTree</span><span class="p">(</span><span class="n">LegGeoInputs</span><span class="p">(),</span> <span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&quot;Leg Input Data&quot;</span><span class="p">)</span>
+    <span class="n">Xbrcinputs</span><span class="o">=</span>  <span class="n">VarTree</span><span class="p">(</span><span class="n">XBrcGeoInputs</span><span class="p">(),</span><span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&quot;Xbrace Input Data&quot;</span><span class="p">)</span>
+    <span class="n">Mbrcinputs</span><span class="o">=</span>  <span class="n">VarTree</span><span class="p">(</span><span class="n">MudBrcGeoInputs</span><span class="p">(),</span><span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span><span class="n">desc</span><span class="o">=</span><span class="s">&quot;Mud Brace Input Data&quot;</span><span class="p">)</span>
+    <span class="n">Hbrcinputs</span><span class="o">=</span>  <span class="n">VarTree</span><span class="p">(</span><span class="n">HBrcGeoInputs</span><span class="p">(),</span><span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&quot;Top H-Brace Input Data&quot;</span><span class="p">)</span>
+    <span class="n">Pileinputs</span><span class="o">=</span>  <span class="n">VarTree</span><span class="p">(</span><span class="n">PileGeoInputs</span><span class="p">(),</span><span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&quot;Pile Input Data&quot;</span><span class="p">)</span>
+    <span class="n">TPinputs</span><span class="o">=</span>    <span class="n">VarTree</span><span class="p">(</span><span class="n">TPGeoInputs</span><span class="p">(),</span>  <span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Basic input data for Transition Piece&#39;</span><span class="p">)</span>
+    <span class="n">FrameAuxIns</span><span class="o">=</span> <span class="n">VarTree</span><span class="p">(</span><span class="n">Frame3DDaux</span><span class="p">(),</span>  <span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Auxiliary Data for Frame3DD&#39;</span><span class="p">)</span>
+
+    <span class="n">Twrinputs</span>  <span class="o">=</span>   <span class="n">VarTree</span><span class="p">(</span><span class="n">TwrGeoInputs</span><span class="p">(),</span> <span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Basic Input data for Tower&#39;</span><span class="p">)</span>
+    <span class="n">RNAinputs</span><span class="o">=</span>     <span class="n">VarTree</span><span class="p">(</span><span class="n">RNAprops</span><span class="p">(),</span>     <span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Basic Inertial Properties of RNA&#39;</span><span class="p">)</span>
+    <span class="n">TPlumpinputs</span><span class="o">=</span>  <span class="n">VarTree</span><span class="p">(</span><span class="n">TPlumpMass</span><span class="p">(),</span>   <span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Basic Inertial Properties of TP Lumped Mass&#39;</span><span class="p">)</span>
+    <span class="n">Waterinputs</span>  <span class="o">=</span> <span class="n">VarTree</span><span class="p">(</span><span class="n">WaterInputs</span><span class="p">(),</span>  <span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Water Data&#39;</span><span class="p">)</span>
+    <span class="n">Windinputs</span>   <span class="o">=</span> <span class="n">VarTree</span><span class="p">(</span><span class="n">WindInputs</span><span class="p">(),</span>   <span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Wind Data&#39;</span><span class="p">)</span>
+    <span class="n">Soilinputs</span>   <span class="o">=</span> <span class="n">VarTree</span><span class="p">(</span><span class="n">SoilGeoInputs</span><span class="p">(),</span><span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Soil Data&#39;</span><span class="p">)</span>
+
+    <span class="n">RNA_F</span>       <span class="o">=</span><span class="n">Array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Unfactored Rotor Forces and Moments, excluding weight. Array(6)&#39;</span><span class="p">)</span>
+    <span class="n">IECpsfIns</span> <span class="o">=</span> <span class="n">VarTree</span><span class="p">(</span><span class="n">IEC_PSFS</span><span class="p">(),</span> <span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Basic IEC psfs&#39;</span><span class="p">)</span>
+
+    <span class="n">TwrRigidTop</span> <span class="o">=</span><span class="n">Bool</span><span class="p">(</span> <span class="n">units</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">iotype</span><span class="o">=</span><span class="s">&#39;in&#39;</span><span class="p">,</span><span class="n">desc</span><span class="o">=</span><span class="s">&#39;Rigid Member used in tower top or not&#39;</span><span class="p">)</span>
+
+    <span class="c">#outs</span>
+    <span class="c">#JcktGeoOut = VarTree(JcktGeoOutputs(), iotype=&#39;out&#39;, desc=&#39;Geometry of the Jacket -Node Coordinates and Member Connectivity&#39;)</span>
+    <span class="n">Twrouts</span>  <span class="o">=</span> <span class="n">VarTree</span><span class="p">(</span><span class="n">TwrGeoOutputs</span><span class="p">(),</span> <span class="n">iotype</span><span class="o">=</span><span class="s">&#39;out&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Basic Output data for Tower&#39;</span><span class="p">)</span>
+    <span class="n">Legouts</span>  <span class="o">=</span> <span class="n">VarTree</span><span class="p">(</span><span class="n">LegGeoOutputs</span><span class="p">(),</span> <span class="n">iotype</span><span class="o">=</span><span class="s">&#39;out&#39;</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s">&#39;Leg Geometry Output&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clamped</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">AFflag</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">PrebuildTP</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">clamped</span> <span class="o">=</span> <span class="n">clamped</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AFflag</span> <span class="o">=</span> <span class="n">AFflag</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PrebuildTP</span> <span class="o">=</span> <span class="n">PrebuildTP</span>
+        <span class="c">#PrebuildTP=  Bool(True, iotype=&#39;in&#39;, desc=&#39;If TRUE then the TP will have dimensions connected to those of legs and braces, and some TP inputs will be overwritten.&#39;)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">JacketSE</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Beyond that you should provide links to important modules in your code.  This will allow you to refer to them in other modules and the source will be linked.</p>
+<div class="section" id="referenced-utilization-modules">
+<h2>3.1. Referenced Utilization Modules<a class="headerlink" href="#referenced-utilization-modules" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-jacketse.Utilization"></span><dl class="class">
+<dt id="jacketse.Utilization.TwrUtilization">
+<em class="property">class </em><tt class="descclassname">jacketse.Utilization.</tt><tt class="descname">TwrUtilization</tt><a class="reference internal" href="_modules/jacketse/Utilization.html#TwrUtilization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.Utilization.TwrUtilization" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.Utilization.JcktUtilization">
+<em class="property">class </em><tt class="descclassname">jacketse.Utilization.</tt><tt class="descname">JcktUtilization</tt><a class="reference internal" href="_modules/jacketse/Utilization.html#JcktUtilization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.Utilization.JcktUtilization" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.Utilization.UtilAssembly">
+<em class="property">class </em><tt class="descclassname">jacketse.Utilization.</tt><tt class="descname">UtilAssembly</tt><a class="reference internal" href="_modules/jacketse/Utilization.html#UtilAssembly"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.Utilization.UtilAssembly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-jacketse.loads">
+<span id="referenced-loads-modules"></span><h2>3.2. Referenced loads Modules<a class="headerlink" href="#module-jacketse.loads" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="jacketse.loads.WindInputs">
+<em class="property">class </em><tt class="descclassname">jacketse.loads.</tt><tt class="descname">WindInputs</tt><a class="reference internal" href="_modules/jacketse/loads.html#WindInputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.loads.WindInputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.loads.WaterInputs">
+<em class="property">class </em><tt class="descclassname">jacketse.loads.</tt><tt class="descname">WaterInputs</tt><a class="reference internal" href="_modules/jacketse/loads.html#WaterInputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.loads.WaterInputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.loads.LoadOutputs">
+<em class="property">class </em><tt class="descclassname">jacketse.loads.</tt><tt class="descname">LoadOutputs</tt><a class="reference internal" href="_modules/jacketse/loads.html#LoadOutputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.loads.LoadOutputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.loads.JcktLoadPre">
+<em class="property">class </em><tt class="descclassname">jacketse.loads.</tt><tt class="descname">JcktLoadPre</tt><a class="reference internal" href="_modules/jacketse/loads.html#JcktLoadPre"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.loads.JcktLoadPre" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.loads.JcktLoadPost">
+<em class="property">class </em><tt class="descclassname">jacketse.loads.</tt><tt class="descname">JcktLoadPost</tt><a class="reference internal" href="_modules/jacketse/loads.html#JcktLoadPost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.loads.JcktLoadPost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.loads.JcktLoad">
+<em class="property">class </em><tt class="descclassname">jacketse.loads.</tt><tt class="descname">JcktLoad</tt><a class="reference internal" href="_modules/jacketse/loads.html#JcktLoad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.loads.JcktLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-jacketse.jacket">
+<span id="referenced-jacket-modules"></span><h2>3.3. Referenced Jacket Modules<a class="headerlink" href="#module-jacketse.jacket" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="jacketse.jacket.Legs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">Legs</tt><a class="headerlink" href="#jacketse.jacket.Legs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.Xbraces">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">Xbraces</tt><a class="reference internal" href="_modules/jacketse/jacket.html#Xbraces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Xbraces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.HBraces">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">HBraces</tt><a class="reference internal" href="_modules/jacketse/jacket.html#HBraces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.HBraces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.MudBraces">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">MudBraces</tt><a class="reference internal" href="_modules/jacketse/jacket.html#MudBraces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.MudBraces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.TP">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">TP</tt><a class="reference internal" href="_modules/jacketse/jacket.html#TP"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.TP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.Tower">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">Tower</tt><a class="reference internal" href="_modules/jacketse/jacket.html#Tower"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Tower" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.Piles">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">Piles</tt><a class="reference internal" href="_modules/jacketse/jacket.html#Piles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Piles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.Soil">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">Soil</tt><a class="reference internal" href="_modules/jacketse/jacket.html#Soil"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Soil" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.SPIstiffness">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">SPIstiffness</tt><a class="reference internal" href="_modules/jacketse/jacket.html#SPIstiffness"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.SPIstiffness" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.PileEmbdL">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">PileEmbdL</tt><a class="reference internal" href="_modules/jacketse/jacket.html#PileEmbdL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.PileEmbdL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-towerse.tower_supplement">
+<span id="referenced-towerse-modules"></span><h2>3.4. Referenced TowerSE Modules<a class="headerlink" href="#module-towerse.tower_supplement" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-commonse.Tube">
+<span id="referenced-commonse-modules"></span><h2>3.5. Referenced CommonSE Modules<a class="headerlink" href="#module-commonse.Tube" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-commonse.SoilC"></span><span class="target" id="module-commonse.EmbedLength"></span><span class="target" id="module-commonse.environment"></span><span class="target" id="module-commonse.Material"></span></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. Documentation</a><ul>
+<li><a class="reference internal" href="#referenced-utilization-modules">3.1. Referenced Utilization Modules</a></li>
+<li><a class="reference internal" href="#module-jacketse.loads">3.2. Referenced loads Modules</a></li>
+<li><a class="reference internal" href="#module-jacketse.jacket">3.3. Referenced Jacket Modules</a></li>
+<li><a class="reference internal" href="#module-towerse.tower_supplement">3.4. Referenced TowerSE Modules</a></li>
+<li><a class="reference internal" href="#module-commonse.Tube">3.5. Referenced CommonSE Modules</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">2. Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="theory.html"
+                        title="next chapter">4. Theory</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/documentation.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="theory.html" title="4. Theory"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="2. Installation"
+             >previous</a> |</li>
+        <li><a href="index.html">jacketse 1.0. documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, RRD.
+      Last updated on Nov 04, 2014.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

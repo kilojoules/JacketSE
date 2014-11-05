@@ -1,0 +1,714 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Source Documentation &mdash; jacketse 1.0. documentation</title>
+    
+    <link rel="stylesheet" href="_static/nrel.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="jacketse 1.0. documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">jacketse 1.0. documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="source-documentation">
+<span id="jacketse-src-label"></span><h1>Source Documentation<a class="headerlink" href="#source-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-jacketse.jacket">
+<span id="jacketse-py"></span><span id="jacketse-jacketse-py"></span><span id="index-0"></span><h2>jacketse.py<a class="headerlink" href="#module-jacketse.jacket" title="Permalink to this headline">¶</a></h2>
+<p>jacket.py</p>
+<p>Created by Rick Damiani and Andrew Ning on 2013-10-28.
+Copyright (c) NREL. All rights reserved.</p>
+<p>!!!!!TO CHECK Buckling LENGTH PASSED TO Tube.py: element length vs. joint2joint length!!!!
+ALSO lENGTH OF LEGS may not be right.</p>
+<dl class="class">
+<dt id="jacketse.jacket.ABSaux">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">ABSaux</tt><a class="reference internal" href="_modules/jacketse/jacket.html#ABSaux"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.ABSaux" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This is an auxiliary component that hopefully we will be able to remove once OpenMDAO gets fixed to get the correct connections when operations are specified</p>
+<dl class="method">
+<dt id="jacketse.jacket.ABSaux.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#ABSaux.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.ABSaux.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.AFOutputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">AFOutputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#AFOutputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.AFOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Apparent Fixity Output Data</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.AFixity">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">AFixity</tt><a class="reference internal" href="_modules/jacketse/jacket.html#AFixity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.AFixity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>FROM BUILDMPTWR.PY: This &#8216;function/component&#8217; calculates the apparent fixity parameters for the pile</p>
+<p>given the soil conditions and selected radius of gyration. It augments the</p>
+<p>object self (PileC) as well.  IT assumes we keep the pile 1st diameter</p>
+<p>and we play with length and wall  thickness.  Material density will need to</p>
+<p>changed as well to realize a weightless member. The cross section is a tubuluar one.</p>
+<p>INPUT</p>
+<p>soil   - object of soil class</p>
+<dl class="method">
+<dt id="jacketse.jacket.AFixity.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#AFixity.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.AFixity.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.BrcCrOutputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">BrcCrOutputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#BrcCrOutputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.BrcCrOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Braces Criteria to be satisfied. These are also in function BrcFind, not used in optimization.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.BrcCriteria">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">BrcCriteria</tt><a class="reference internal" href="_modules/jacketse/jacket.html#BrcCriteria"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.BrcCriteria" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This component check brace criteria. They used to be in function BrcFind, not used in optimization anymore.</p>
+<dl class="method">
+<dt id="jacketse.jacket.BrcCriteria.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#BrcCriteria.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.BrcCriteria.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="jacketse.jacket.BrcFind">
+<tt class="descclassname">jacketse.jacket.</tt><tt class="descname">BrcFind</tt><big>(</big><em>legObj</em>, <em>bay_bs</em>, <em>bay_hs</em>, <em>innr_ang</em>, <em>al_bat2D</em>, <em>wdepth</em>, <em>mudbrc=False</em>, <em>VPFlag=False</em>, <em>Kbuck=0.8</em>, <em>Klr_mx=70</em>, <em>minmass=True</em>, <em>PipeSch=True</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#BrcFind"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.BrcFind" title="Permalink to this definition">¶</a></dt>
+<dd><p>This Function calculates a brace size given a leg size and follwong a few empirical constraints as follows:</p>
+<p>!!!It needs to be augmented to include horizontal bracing !!!
+INPUT</p>
+<blockquote>
+<div>legObj      -Tube object as coming from component legs
+innr_ang    -float,  Angle between radial direction and base side [rad] (pi/6 * (nlegs==3) + pi/4 <a href="#id1"><span class="problematic" id="id2">*</span></a>(nlegs==4))
+al_bat2D    -float, angle between leg and vertical in 2D projection [rad]
+wdepth      -float, Water Depth [m]
+bay_bs      -float(nbays), Widths of bays [m]
+bay_hs      -float(nbays), Heights of bays [m]
+mudbrc   -boolean, flag to see whether we are calculating horizontal (mud-) brace</div></blockquote>
+<dl class="docutils">
+<dt>OPTIONAL INPUT</dt>
+<dd>VPFlag -boolean, Vertical Pile Flag (used for mudbrace sizing)
+Kbuck  -float, buckling constant for Klr
+Klr_mx -float, maximum valu for Klr</dd>
+<dt>OUTPUT</dt>
+<dd>Dbrc -float, brace diameter [m]
+tbrc -float, brace thickness [m]</dd>
+<dt>NOTE:</dt>
+<dd><dl class="first docutils">
+<dt>1.Criteria to Find Braces:</dt>
+<dd>1.1. A&gt;0.1*Aleg (stiffness criteria)
+1.2. Dbrc/Dleg&gt;0.3  (joint capacity)
+1.3. Db/tb&gt;=31  (between 19 and 60, &gt;=31 floats)
+1.4. Db/tb&gt; [250/ (wdth in ft)^(1/3)] (to avoid hydrostatic issues)
+1.5. Klr&lt;=70  (70&lt;Klr&lt;90 is a good interval to avoid buckling)</dd>
+</dl>
+<p class="last">2.For bottom horizontal brace use Klr&lt;=90,Kbuck=0.9
+3.Assumed: minimum Dbrc=0.25m minimum tbrc=0.25 in</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.BuildGeometry">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">BuildGeometry</tt><a class="reference internal" href="_modules/jacketse/jacket.html#BuildGeometry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.BuildGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This function assembles the full structure made of individual components to come up with a general xyz node distribution.
+It also calculates the properties of the various members and sets up variables to be passed to Frame3DD caller.</p>
+<dl class="method">
+<dt id="jacketse.jacket.BuildGeometry.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#BuildGeometry.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.BuildGeometry.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.ComponentMass">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">ComponentMass</tt><a class="reference internal" href="_modules/jacketse/jacket.html#ComponentMass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.ComponentMass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This component Calculates masses of the model + embedded piles</p>
+<dl class="method">
+<dt id="jacketse.jacket.ComponentMass.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#ComponentMass.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.ComponentMass.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns:
+1.mass, dry mass of the Jacket members only (no TP, no Tower, no piles, no non-structural mass)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="jacketse.jacket.FindBeta3D">
+<tt class="descclassname">jacketse.jacket.</tt><tt class="descname">FindBeta3D</tt><big>(</big><em>beta_2D</em>, <em>al_bat2D</em>, <em>al_bat3D</em>, <em>innr_ang</em>, <em>wbas0</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#FindBeta3D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.FindBeta3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function calculates the 3D beta angle based on the bottom bay. This</p>
+<p>is the angle you would compare against NORSOK 30 degrees.
+It also returns the angle between X-braces (facing the bottom bay width)
+INPUTS:</p>
+<blockquote>
+<div>Jacket- object of class JacketC</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="jacketse.jacket.FindBrcAng">
+<tt class="descclassname">jacketse.jacket.</tt><tt class="descname">FindBrcAng</tt><big>(</big><em>Hbays</em>, <em>nbays</em>, <em>wbas0</em>, <em>al_bat2D</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#FindBrcAng"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.FindBrcAng" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function calculates the brace angle and the bay heights for a Jacket</p>
+<p>with constant brace angle solving a non-linear equation.</p>
+<p>Input is an object of class Jacket.</p>
+<p>Output is a tuple containing [bay-base widths=array(nbays),</p>
+<p>bay-heights=array(nbays), brace angle with leg (2D) =beta2D]</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.Frame3DDOutputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">Frame3DDOutputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#Frame3DDOutputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Frame3DDOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>General Frame3DD Output Data</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.Frame3DDaux">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">Frame3DDaux</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#Frame3DDaux"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Frame3DDaux" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>General Frame3DD parameters</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.FrameOutsaux">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">FrameOutsaux</tt><a class="reference internal" href="_modules/jacketse/jacket.html#FrameOutsaux"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.FrameOutsaux" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This is an auxiliary component that hopefully we will be able to remove once OpenMDAO gets fixed to properly handle boundary variables</p>
+<dl class="method">
+<dt id="jacketse.jacket.FrameOutsaux.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#FrameOutsaux.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.FrameOutsaux.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.HBraces">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">HBraces</tt><a class="reference internal" href="_modules/jacketse/jacket.html#HBraces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.HBraces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This component creates nodes for the Horizontal Braces at the top, below the girder if wanted.</p>
+<dl class="method">
+<dt id="jacketse.jacket.HBraces.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#HBraces.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.HBraces.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.HBrcGeoInputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">HBrcGeoInputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#HBrcGeoInputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.HBrcGeoInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Inputs need to build Hbraces of Jacket</p>
+<dl class="attribute">
+<dt id="jacketse.jacket.HBrcGeoInputs.Dbrc_def">
+<tt class="descname">Dbrc_def</tt><em class="property"> = 0.813</em><a class="headerlink" href="#jacketse.jacket.HBrcGeoInputs.Dbrc_def" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="jacketse.jacket.HBrcGeoInputs.tbrc_def">
+<tt class="descname">tbrc_def</tt><em class="property"> = 0.03</em><a class="headerlink" href="#jacketse.jacket.HBrcGeoInputs.tbrc_def" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.HBrcGeoOutputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">HBrcGeoOutputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#HBrcGeoOutputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.HBrcGeoOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Outputs needed to build Xbraces of Jacket</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.JacketSE">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">JacketSE</tt><big>(</big><em>clamped=False</em>, <em>AFflag=False</em>, <em>PrebuildTP=True</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#JacketSE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.JacketSE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.assembly.Assembly</span></tt></p>
+<dl class="method">
+<dt id="jacketse.jacket.JacketSE.configure">
+<tt class="descname">configure</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#JacketSE.configure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.JacketSE.configure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.JcktGeoInputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">JcktGeoInputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#JcktGeoInputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.JcktGeoInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Inputs need to build a Jacket Model</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.LegGeoInputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">LegGeoInputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#LegGeoInputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.LegGeoInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Inputs need to build Legs of Jacket</p>
+<dl class="attribute">
+<dt id="jacketse.jacket.LegGeoInputs.Dleg_def">
+<tt class="descname">Dleg_def</tt><em class="property"> = 1.2</em><a class="headerlink" href="#jacketse.jacket.LegGeoInputs.Dleg_def" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="jacketse.jacket.LegGeoInputs.tleg_def">
+<tt class="descname">tleg_def</tt><em class="property"> = 0.0254</em><a class="headerlink" href="#jacketse.jacket.LegGeoInputs.tleg_def" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.LegGeoOutputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">LegGeoOutputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#LegGeoOutputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.LegGeoOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Outputs needed to build Xbraces of Jacket</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="jacketse.jacket.Mat2Member">
+<tt class="descclassname">jacketse.jacket.</tt><tt class="descname">Mat2Member</tt><big>(</big><em>nmems</em>, <em>matins0</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#Mat2Member"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Mat2Member" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function takes a set of material properties, and a number of members
+and spits out an array of material objects, one per member.
+INPUTS:</p>
+<blockquote>
+<div><p>matins0:   VarTree(matInput(),iotype=&#8217;in&#8217;,desc=&#8217;Material Data (name,E,nu,rho,fy,fyc&#8217;)</p>
+<p>nmems=Int(iotype=&#8217;in&#8217;,desc=&#8217;Number of Members&#8217;)</p>
+</div></blockquote>
+<p>OUTPUTS:</p>
+<blockquote>
+<div>matobs=Array(iotype=&#8217;out&#8217;,dtype=np.object,desc=&#8217;Array of Material Objects&#8217;)</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.MatInputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">MatInputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#MatInputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.MatInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="jacketse.jacket.Melm">
+<tt class="descclassname">jacketse.jacket.</tt><tt class="descname">Melm</tt><big>(</big><em>X1</em>, <em>X2</em>, <em>roll</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#Melm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Melm" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function finds the transformation matrix M to go from global X,Y,Z to</p>
+<p>local element x,y,z.  Note x along member per Frame3DD.</p>
+<p>INPUT</p>
+<p>X1    -float(3,n), X,Y,Z values for n elements, i-th (1st)node [m]</p>
+<p>X2    -float(3,n), X,Y,Z values for n elements, j-th (2nd)node [m]</p>
+<p>roll  -float(n),  roll angle as defined by Frame3DD about local x axis of element  [rad]</p>
+<p>OUTPUT</p>
+<dl class="docutils">
+<dt>out   -float(3,3,n), direction cosine matrices of coordinate system having</dt>
+<dd>x-axis along element, y-axis along element principal axis, z-axis along other principal axis, for starting and ending x-sections</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.MudBraces">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">MudBraces</tt><a class="reference internal" href="_modules/jacketse/jacket.html#MudBraces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.MudBraces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This component creates nodes for the MudBraces</p>
+<dl class="method">
+<dt id="jacketse.jacket.MudBraces.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#MudBraces.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.MudBraces.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.MudBrcGeoInputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">MudBrcGeoInputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#MudBrcGeoInputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.MudBrcGeoInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Inputs need to build Mudbraces of Jacket</p>
+<dl class="attribute">
+<dt id="jacketse.jacket.MudBrcGeoInputs.Dbrc_mud_def">
+<tt class="descname">Dbrc_mud_def</tt><em class="property"> = 0.813</em><a class="headerlink" href="#jacketse.jacket.MudBrcGeoInputs.Dbrc_mud_def" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="jacketse.jacket.MudBrcGeoInputs.tbrc_mud_def">
+<tt class="descname">tbrc_mud_def</tt><em class="property"> = 0.03</em><a class="headerlink" href="#jacketse.jacket.MudBrcGeoInputs.tbrc_mud_def" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.MudBrcGeoOutputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">MudBrcGeoOutputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#MudBrcGeoOutputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.MudBrcGeoOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Outputs needed to build Xbraces of Jacket</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.PileEmbdL">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">PileEmbdL</tt><a class="reference internal" href="_modules/jacketse/jacket.html#PileEmbdL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.PileEmbdL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<dl class="method">
+<dt id="jacketse.jacket.PileEmbdL.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#PileEmbdL.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.PileEmbdL.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.PileGeoInputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">PileGeoInputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#PileGeoInputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.PileGeoInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Inputs need to build Legs of Jacket</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.PileGeoOutputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">PileGeoOutputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#PileGeoOutputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.PileGeoOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Outputs needed to build Piles of Jacket</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.Piles">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">Piles</tt><a class="reference internal" href="_modules/jacketse/jacket.html#Piles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Piles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This component creates nodes for the Piles.
+For now just vertical piles have been verified.
+Battered piles would also be modifying properties inside leg bottom, which has not been done yet.</p>
+<dl class="method">
+<dt id="jacketse.jacket.Piles.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#Piles.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Piles.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.PreBuildTP">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">PreBuildTP</tt><a class="reference internal" href="_modules/jacketse/jacket.html#PreBuildTP"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.PreBuildTP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This component takes care of precalculating some dimensions for the TP structure,</p>
+<p>especially in the case where we do not verify the TP members.</p>
+<dl class="method">
+<dt id="jacketse.jacket.PreBuildTP.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#PreBuildTP.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.PreBuildTP.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.PreJcktBuild">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">PreJcktBuild</tt><a class="reference internal" href="_modules/jacketse/jacket.html#PreJcktBuild"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.PreJcktBuild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>Small Component Helper that takes some input from PrepJcket and Leg and Creates
+some other inputs for components: JcktBuild and Legs.</p>
+<dl class="docutils">
+<dt>Jacket model.  Assumes:</dt>
+<dd><blockquote class="first">
+<div>BuildJacket() really does the building, here we set general and default main parmaeters.
+Additionally, the following assumptions apply:</div></blockquote>
+<ol class="last arabic" start="0">
+<li><p class="first">Round tube jacket construction only</p>
+</li>
+<li><p class="first">3 or 4 legs</p>
+</li>
+<li><p class="first">X-braces only</p>
+</li>
+<li><p class="first">All joints are moment-coonections (weldments)</p>
+</li>
+<li><p class="first">Shear Deformation (Timoshenko) included</p>
+</li>
+<li><p class="first">The joint finite size is ignored for the time being, it will be modified in the future</p>
+</li>
+<li><p class="first">Properties are constant within a bay (D,t for legs and braces)</p>
+</li>
+<li><p class="first">The input file for frame3DD is in the matlab variant style (see Frame3DD documentation)</p>
+</li>
+<li><p class="first">Jacket leg has a stump about 1.5D long (vertical height) and at the top</p>
+<p>it connects to</p>
+</li>
+<li><p class="first">Legs, TP are created in BuildJacket to give a chance to read input from a file</p>
+</li>
+<li><p class="first">Constant brace angle with chord only</p>
+</li>
+<li><p class="first">If legZbot&gt;0, a vertical pile stump to sea-bed is created with same D and t as leg foot as default</p>
+</li>
+</ol>
+</dd>
+</dl>
+<dl class="method">
+<dt id="jacketse.jacket.PreJcktBuild.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#PreJcktBuild.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.PreJcktBuild.execute" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>This function returns main geometry of the Jacket. Node coordinates and connectivity</dt>
+<dd>This function builds up a model for Frame3DD based on Jacket object.
+It requires an object as input and spits out an augmented version of it.</dd>
+</dl>
+<p>!!!!soil and apparent fixity still to fix!!!!</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.RunFrame3DDstatic">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">RunFrame3DDstatic</tt><a class="reference internal" href="_modules/jacketse/jacket.html#RunFrame3DDstatic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.RunFrame3DDstatic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This component runs Frame3DD for the jacket-tower assembly in static and dynamic modes. The modal analysis may be redone with stiffness constants at the base.</p>
+<dl class="method">
+<dt id="jacketse.jacket.RunFrame3DDstatic.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#RunFrame3DDstatic.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.RunFrame3DDstatic.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.SPIstiffness">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">SPIstiffness</tt><a class="reference internal" href="_modules/jacketse/jacket.html#SPIstiffness"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.SPIstiffness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This component calculates the soil-pile equivalent stiffness matrix at mudline.</p>
+<p>NOTES:1. It uses either Matlock&amp;Reese(1960) or Pender&#8217;s (1993) approximations.</p>
+<blockquote>
+<div><blockquote>
+<div>In either case, Es is assumed varying linearly with depth.</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Use only if AF is not enabled!!!</li>
+</ol>
+</div></blockquote>
+<dl class="method">
+<dt id="jacketse.jacket.SPIstiffness.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#SPIstiffness.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.SPIstiffness.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="jacketse.jacket.SchPipe">
+<tt class="descclassname">jacketse.jacket.</tt><tt class="descname">SchPipe</tt><big>(</big><em>D</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#SchPipe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.SchPipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns a scheduled pipe Diameter given an initial OD.</p>
+<p>It would be correct for pipes up to 18in in OD, but we use it to be conservative also beyond that.
+INPUT</p>
+<blockquote>
+<div>D  - float(n), OD of pipes in [m]</div></blockquote>
+<dl class="docutils">
+<dt>OUTPUT</dt>
+<dd>SchPipeOD   -float(n), scheduled OD  in [m]</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.Soil">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">Soil</tt><a class="reference internal" href="_modules/jacketse/jacket.html#Soil"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Soil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This component creates soil object.</p>
+<dl class="method">
+<dt id="jacketse.jacket.Soil.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#Soil.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Soil.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.SoilGeoInputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">SoilGeoInputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#SoilGeoInputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.SoilGeoInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Soil Properties needed to assess Soil and Embedment Length</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.SoilGeoOutputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">SoilGeoOutputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#SoilGeoOutputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.SoilGeoOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Soil-Pile Stiffness Data</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.TP">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">TP</tt><a class="reference internal" href="_modules/jacketse/jacket.html#TP"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.TP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<dl class="method">
+<dt id="jacketse.jacket.TP.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#TP.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.TP.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.TPGeoInputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">TPGeoInputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#TPGeoInputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.TPGeoInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Inputs need to build Transition Piece of Jacket</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.TPGeoOutputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">TPGeoOutputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#TPGeoOutputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.TPGeoOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Outputs needed to build Xbraces of Jacket</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.TPlumpMass">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">TPlumpMass</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#TPlumpMass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.TPlumpMass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Inertial Properties of Optional TP lumped Mass</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.Tower">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">Tower</tt><a class="reference internal" href="_modules/jacketse/jacket.html#Tower"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Tower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>Tower model.  Assumes:</p>
+<p>EITHER</p>
+<blockquote>
+<div><ul class="simple">
+<li>Constant taper in both diameter and thickness</li>
+<li>A uniform section at the base is allowed</li>
+</ul>
+</div></blockquote>
+<p>OR</p>
+<blockquote>
+<div>-z,D,t given by user at desired end nodes of elements.</div></blockquote>
+<p>This component returns nodes and tube object. mass calculation MUST BE REVISED to allow for multiple materials.</p>
+<dl class="method">
+<dt id="jacketse.jacket.Tower.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#Tower.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Tower.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.TwrGeoInputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">TwrGeoInputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#TwrGeoInputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.TwrGeoInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Inputs needed to build Tower</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.XBrcGeoInputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">XBrcGeoInputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#XBrcGeoInputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.XBrcGeoInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Inputs need to build Xbraces of Jacket</p>
+<dl class="attribute">
+<dt id="jacketse.jacket.XBrcGeoInputs.Dbrc_def">
+<tt class="descname">Dbrc_def</tt><em class="property"> = 1.2</em><a class="headerlink" href="#jacketse.jacket.XBrcGeoInputs.Dbrc_def" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="jacketse.jacket.XBrcGeoInputs.tbrc_def">
+<tt class="descname">tbrc_def</tt><em class="property"> = 0.0254</em><a class="headerlink" href="#jacketse.jacket.XBrcGeoInputs.tbrc_def" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.XBrcGeoOutputs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">XBrcGeoOutputs</tt><big>(</big><em>iotype=''</em><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#XBrcGeoOutputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.XBrcGeoOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.vartree.VariableTree</span></tt></p>
+<p>Basic Geometric Outputs needed to build Xbraces of Jacket</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.Xbraces">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">Xbraces</tt><a class="reference internal" href="_modules/jacketse/jacket.html#Xbraces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Xbraces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This component creates nodes for the X-braces</p>
+<dl class="method">
+<dt id="jacketse.jacket.Xbraces.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#Xbraces.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.Xbraces.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jacketse.jacket.legs">
+<em class="property">class </em><tt class="descclassname">jacketse.jacket.</tt><tt class="descname">legs</tt><a class="reference internal" href="_modules/jacketse/jacket.html#legs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.legs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">openmdao.main.component.Component</span></tt></p>
+<p>This component creates a leg object and returns legs&#8217;&#8217; xyz node coordinates.
+Assumes stump at the bottom of 1.5OD, stump at top defined by TP</p>
+<dl class="method">
+<dt id="jacketse.jacket.legs.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/jacketse/jacket.html#legs.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jacketse.jacket.legs.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Source Documentation</a><ul>
+<li><a class="reference internal" href="#module-jacketse.jacket">jacketse.py</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/srcdocs.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">jacketse 1.0. documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, RRD.
+      Last updated on Nov 04, 2014.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
