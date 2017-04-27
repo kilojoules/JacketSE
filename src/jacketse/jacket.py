@@ -9,7 +9,7 @@ Copyright (c) NREL. All rights reserved.
 !!!!!TO CHECK Buckling LENGTH PASSED TO Tube.py: element length vs. joint2joint length!!!!
 ALSO lENGTH OF LEGS may not be right.
 
-All lines marked CJB+, CJB-, or CJBe have been added, "removed" (commented out), or edited respectively by Casey Broslawski. Summer 2016
+All lines marked CJB+, CJB-, or CJBe have been added, commented out, or edited by Casey Broslawski. Summer 2016
 """
 print("Modified JacketSE") #CJB+
 
